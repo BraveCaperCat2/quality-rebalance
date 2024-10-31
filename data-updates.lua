@@ -1,4 +1,4 @@
-if not mods['space-age'] then return end
+if mods['space-age'] then 
 
 for _, recipe in pairs(data.raw.recipe) do
     if recipe.category == "crushing" and recipe.name ~= "promethium-asteroid-reprocessing" then
@@ -17,5 +17,24 @@ for _, recipe in pairs(data.raw.recipe) do
             end
         end
         recipe.allowed_module_categories = new_allowed_module_categories
+    end
+end
+
+for _,Recipe in pairs(data.raw["recipe"]) do
+    if recipe.category == "crushing" and recipe.name ~= "promethium-asteroid-reprocessing" then
+        if recipe.allowed_module_categories == nil then
+            for _,ModuleCategory in pairs(data.raw["module-category"] do
+                if ModuleCategory
+            recipe.allowed_module_categories = {}
+        end
+        local ContainsTheModuleCategory = False
+        for _,ModuleCategory in pairs(recipe.allowed_module_categories) do
+            if ModuleCategory == "promethium-quality-hidden-module" then
+                ContainsTheModuleCategory = True
+            end
+        end
+        if not ContainsTheModuleCategory then
+            
+        end
     end
 end

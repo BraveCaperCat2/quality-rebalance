@@ -1,9 +1,15 @@
 require "prototypes.promethium-reprocessing"
 
--- remove "haste makes waste"
+-- remove "Quick Quality loss" for all modules.
 
-data.raw.module["speed-module"].effect.quality = nil
-for i = 2, 50 do
-    local module = data.raw.module["speed-module-" .. i]
-    if module then module.effect.quality = nil end
+for _,Module in pairs(data.raw["module"]) do
+    if Module ~= nil then
+        if Module.effect then
+            if Module.effect.quality then
+                if Module.effect.quality < 0 then
+                    Module.effect.quality = 0
+                end
+            end
+        end
+    end
 end

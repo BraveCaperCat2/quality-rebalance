@@ -18,7 +18,7 @@ The quality mechanic has many strange exceptions.
 Why does it not effect agricultural towers?
 Why does it buff pumps but not offshore pumps?
 Why doesn't the rocket silo animation speed also scale?
-This mod makes quality effect ALL THE THINGS
+This mod makes quality effect everything. This includes:
 
 ### Agricultural towers
 

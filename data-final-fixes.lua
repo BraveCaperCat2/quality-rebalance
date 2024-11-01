@@ -246,6 +246,16 @@ for _, offshore_pump in pairs(data.raw['offshore-pump']) do
 	})
 end
 
+for _,repair_pack in pairs(data.raw['repair-tool']) do
+	make_effected_by_quality(repair_pack, function(entity, quality_level)
+		entity.speed = entity.speed * get_quality_buff(quality_level)
+	end, {
+		{'description.repair-speed']
+	}, {
+		{{'quality-tooltip.repair-speed'}, function(entity, quality_level) return tostring(entity.speed * get_quality_buff(quality_level)) .. '/s' end} -- I don't know if i did this correctly. Should fix 67115b78ce0d4de611054ef5 on the mod portal.
+	})
+end
+
 local function parse_energy(energy)
 	local energy_suffix = energy:match('[a-zA-Z]*$', 1)
 	local energy = tonumber(energy:match('[0-9]+', 1)) or 1
